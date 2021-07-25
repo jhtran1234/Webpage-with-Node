@@ -1,20 +1,30 @@
-const http = require('http');
-const fs = require('fs');
+const http = require('http'),
+    fs = require('fs');
+
+
+var jeff;
+fs.readFile('./HTML/index.html', function (err, html) {
+    if (err) {
+        throw err; 
+    }
+    jeff = html;
+});
 
 http.createServer((request, response) => {
-  const { method, url } = request;
+    const { method, url } = request;
 
-  response.writeHead(200, {'Content-Type': 'text/html'});
-  response.write(method);
-  response.write("\n");
+    if (method=="GET" && url=="/hello") {
+      response.writeHead(200, {'Content-Type': 'text/html'});
+      response.write(jeff);
+    }
+    else if (method=="GET" && url=="/jeff") {
+      response.writeHead(200, {'Content-Type': 'text/html'});
+      response.write(jeff);
+    }
+    else if (method=="GET" && url=="/hello/world"){
+      response.writeHead(200, {'Content-Type': 'text/plain'});
+      response.write("Hello World!");
+    }
 
-  if (method=="GET" && url=="/hello") {
-    response.write("Hello!");
-  }
-  else if (method=="GET" && url=="/hello/world"){
-    response.write("Hello World!");
-
-  }
-
-  response.end();
+    response.end();
 }).listen(8080);

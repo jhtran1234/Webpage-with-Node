@@ -1,14 +1,18 @@
-var http = require('http'),
+// Returns my HTML file from 2012, 6th grade
+
+const http = require('http'),
     fs = require('fs');
 
-
-fs.readFile('./HTML/index.html', function (err, html) {
+var html;
+fs.readFile('./HTML/index.html', function (err, htmlFile) {
     if (err) {
         throw err; 
-    }       
-    http.createServer(function(request, response) {  
-        response.writeHeader(200, {"Content-Type": "text/html"});  
-        response.write(html);  
-        response.end();  
-    }).listen(8000);
+    }
+    html = htmlFile;
 });
+
+http.createServer(function(request, response) {  
+    response.writeHeader(200, {"Content-Type": "text/html"});  
+    response.write(html);  
+    response.end();  
+}).listen(8080);
