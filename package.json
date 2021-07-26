@@ -1,0 +1,24 @@
+{
+  "name": "Webpage-with-Node",
+  "version": "1.0.0",
+  "main": "api_call.js",
+  "dependencies": {
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jhtran1234/Webpage-with-Node.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jhtran1234/Webpage-with-Node/issues"
+  },
+  "homepage": "https://github.com/jhtran1234/Webpage-with-Node#readme",
+  "description": ""
+}
