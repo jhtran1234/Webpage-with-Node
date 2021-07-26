@@ -9,6 +9,14 @@ fs.readFile('./HTML/index.html', function (err, html) {
   jeff = html;
 });
 
+var wishlist;
+fs.readFile('./HTML/Wish List.html', function (err, html) {
+  if (err) {
+      throw err; 
+  }
+  wishlist = html;
+});
+
 http.createServer((request, response) => {
   const { method, url } = request;
 
@@ -24,9 +32,11 @@ http.createServer((request, response) => {
     response.writeHead(200, {'Content-Type': 'text/plain'});
     response.write("Hello World!");
   }
+  else if (method=="GET" && url=="/wishlist"){
+    response.writeHead(200, {'Content-Type': 'text/html'});
+    response.write(wishlist);
+  }
   else if (method=="GET" && url=="/NASA"){
-
-
 
     /*const fetch = require('node-fetch');
     var hdurl;
@@ -35,8 +45,6 @@ http.createServer((request, response) => {
         .then(json => console.log(text))
 
     */
-
-
 
     response.writeHead(200, {'Content-Type': 'text/html'});
     response.write("<html><img src=\"");
