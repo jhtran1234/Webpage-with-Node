@@ -37,18 +37,11 @@ http.createServer((request, response) => {
     response.write(wishlist);
   }
   else if (method=="GET" && url=="/NASA"){
-
-    /*const fetch = require('node-fetch');
-    var hdurl;
-    fetch('https://api.nasa.gov/planetary/apod?api_key=eVTqFnElSp1SbdFPsOA3us3IgAxEEYuybqnyMUZh')
-        .then(res => res.json())
-        .then(json => console.log(text))
-
-    */
-
+    var imgurl = "";
+    // TODO
     response.writeHead(200, {'Content-Type': 'text/html'});
     response.write("<html><img src=\"");
-    response.write('https://apod.nasa.gov/apod/image/2107/neptunetriton_voyager_960.jpg'); //populate
+    response.write(imgurl); //populate
     response.write("\"></html>");
   }
 
